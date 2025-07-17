@@ -81,6 +81,7 @@ e.g UrlsConsumerManager class takes care of managing the life cycle of jobs in t
 UrlConsumer class takes care of pulling the content of a single URL.
 
 ## What can be improved
+- currently the system stores the active/historic jobs in-memory, to persist it between applcation retarts, a database can be used.
 - expand the "status" property into each individual URL included in a given job
   - this will enable the system to support partial completion of a job, with a status per each included URL
 - add validation for valid URLs before starting a job
