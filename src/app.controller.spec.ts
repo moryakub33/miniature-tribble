@@ -23,14 +23,13 @@ describe('AppController', () => {
   describe('consume URLs', () => {
     it('should return the number of URLs successfully recieved', () => {
       const urls = ['http://example.com', 'http://test.com'];
-      expect(appController.consumeUrls(urls)).toBe(2);
+      expect(appController.consumeUrls(urls)).toEqual({ successfully_recieved: 2});
     });
   });
 
   describe('get latest URLs content', () => {
     it('should return the number of URLs successfully recieved', () => {
-      const urls = ['http://example.com', 'http://test.com'];
-      expect(appController.getLatestURLsContent()).toBeTruthy();
+      expect(appController.getLatestURLsContent()).toEqual({ total_content_size: 0, urls: []});
     });
   });
 });
