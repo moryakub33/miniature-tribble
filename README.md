@@ -41,6 +41,8 @@ get the first run result
 ### Tests
 2 tests in app.controller.spec.ts to ensure the required endpoints are working in their basic case.
 
+run with `npm run test`
+
 ### Endpoints:
 #### (required) /consume-urls: 
 Gets a list of urls and starts an async execution of pulling the contents of all the given URLs.
