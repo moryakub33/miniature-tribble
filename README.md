@@ -4,11 +4,28 @@
 3. Stop any running docker containers `docker rm -f $(docker ps -q)`
 3. Run the app while exposing the required port: `docker run -d -p 3000:3000 mor-solution`
 4. Play around with curl commands:
-  a. start a job with google as a URL - `curl -X POST -H "Content-Type: application/json" -d '{"urls": ["https://google.com"]}' http://localhost:3000/consume-urls`
-  a. copy the returned job_id for later
-  b. start another job with a bad URL `curl -X POST -H "Content-Type: application/json" -d '{"urls": ["https://google1231231243242334.com"]}' http://localhost:3000/consume-urls`
-  c. get the latest run result `curl http://localhost:3000/latest-urls-content` (should be a FAILED job because of a bad url)
-  d. get the first run result `curl http://localhost:3000/urls-content/<first_job_id>` (should be a success with some metadata on the URL)
+
+start a job with google as a URL:
+
+`curl -X POST -H "Content-Type: application/json" -d '{"urls": ["https://google.com"]}' http://localhost:3000/consume-urls`
+
+note: copy the returned job_id for later
+
+start another job with a bad URL 
+
+`curl -X POST -H "Content-Type: application/json" -d '{"urls": ["https://google1231231243242334.com"]}' http://localhost:3000/consume-urls`
+
+get the latest run result 
+
+`curl http://localhost:3000/latest-urls-content` 
+
+(should be a FAILED job because of a bad url)
+
+get the first run result 
+
+`curl http://localhost:3000/urls-content/<first_job_id>` 
+
+(should be a success with some metadata on the URL)
 
 ## What is included
 
