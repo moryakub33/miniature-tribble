@@ -1,8 +1,17 @@
+## Pre-req
+In the remote GCP machine, I already installed git + docker , and cloned this solution into the machine.
+
+what I have done:
+- sudo apt-get install git
+- install docker according to `https://docs.docker.com/engine/install/debian/#install-using-the-repository`
+- git clone https://github.com/moryakub33/miniature-tribble.git
+
 ## How to run
 1. Access the remote GCP machine
-2. Ensure latest docker image is built: `docker build -t mor-solution:latest .`
-3. Stop any running docker containers `docker rm -f $(docker ps -q)`
-3. Run the app while exposing the required port: `docker run -d -p 3000:3000 mor-solution`
+2. cd miniature-tribble (should already be cloned)
+2. Ensure latest docker image is built: `sudo docker build -t mor-solution:latest .`
+3. Stop any running docker containers `sudo docker rm -f $(docker ps -q)`
+3. Run the app while exposing the required port: `sudo docker run -d -p 3000:3000 mor-solution`
 4. Play around with curl commands:
 
 start a job with google as a URL:
@@ -65,7 +74,7 @@ Set a proper error message in the job status in such case.
 If a URL has failed, the server will handle it gracefully, log it, and mark the appropriate job as failed.
 
 ### Modular Code
-Abstract away different components of the system using proper classes and files.
+I abstracted away the logic of the different components of the system using proper classes and files.
 e.g UrlsConsumerManager class takes care of managing the life cycle of jobs in the system,
 UrlConsumer class takes care of pulling the content of a single URL.
 
